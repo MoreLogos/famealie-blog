@@ -1,0 +1,65 @@
+---
+import { APP_URL } from '../consts';
+const { variant = 'box' } = Astro.props;
+---
+
+{
+  variant === 'box' ? (
+    <aside class="cta-box">
+      <h3>Stop dreading "what's for dinner?"</h3>
+      <p>
+        famealie plans your family's week, builds the shopping list, and keeps
+        track of what's in the cupboard — together.
+      </p>
+      <a
+        class="cta-button"
+        href={APP_URL}
+        data-ph-event="blog_cta_clicked"
+        data-ph-location="post-box"
+      >
+        Try famealie free →
+      </a>
+    </aside>
+  ) : (
+    <a
+      class="cta-inline"
+      href={APP_URL}
+      data-ph-event="blog_cta_clicked"
+      data-ph-location="inline"
+    >
+      Try famealie free →
+    </a>
+  )
+}
+
+<style>
+  .cta-box {
+    margin: 2.5em 0 1em;
+    padding: 1.5em 1.75em;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 14px;
+    background: rgb(var(--gray-light), 0.4);
+  }
+  .cta-box h3 {
+    margin: 0 0 0.4em;
+  }
+  .cta-box p {
+    margin: 0 0 1.1em;
+    color: rgb(var(--gray-dark));
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 0.7em 1.3em;
+    border-radius: 10px;
+    background: #4caf50;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    background: #439a47;
+  }
+  .cta-inline {
+    font-weight: 600;
+  }
+</style>
